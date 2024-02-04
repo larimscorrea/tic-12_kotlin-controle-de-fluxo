@@ -8,20 +8,30 @@ package first_questions
 import kotlin.math.sqrt // Exemplo de importação para a função sqrt
 
 fun main() {
-    val vetor = DoubleArray(10) // Cria um vetor de Double com 10 elementos
-    println("Digite os 10 elementos do vetor:")
+    // Cria um vetor de Double com 10 elementos
+    val vetor = DoubleArray(10)
+
+    // Lê os elementos do vetor
+    for (i in 0 until vetor.size) {
+        println("Digite o ${i + 1}º elemento do vetor: ")
+        vetor[i] = readLine()!!.toDouble()
+    }
+
+    // Lê o número a ser pesquisado
+    print("Digite o número a ser pesquisado: ")
+    val numero = readLine()!!.toDouble()
+
+    // Busca o número no vetor
+    var encontrado = false
     for (i in 0 until vetor.size) {
         if (vetor[i] == numero) {
-            // O número foi encontrado
+            encontrado = true
             break
         }
     }
 
-
-    print("Digite o número a ser pesquisado: ")
-    val numero = readLine()!!.toDouble()
-
-    if (numero in vetor) {
+    // Exibe o resultado da pesquisa
+    if (encontrado) {
         println("Elemento $numero achado no vetor.")
     } else {
         println("Elemento $numero não achado no vetor.")
